@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wi-Fi Connection</title>
+</head>
+<body>
+    <h1>Wi-Fi Connection</h1>
+    <p id="wifi-info"></p>
+
+    <script>
+        // Parse the URL parameters
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const ssid = urlParams.get('ssid');
+        const password = urlParams.get('password');
+
+        // Display the Wi-Fi details
+        if (ssid && password) {
+            document.getElementById("wifi-info").innerHTML = `
+                SSID: <strong>${ssid}</strong><br>
+                Password: <strong>${password}</strong><br>
+                <p>Go to your Wi-Fi settings and connect manually.</p>
+            `;
+        } else {
+            document.getElementById("wifi-info").innerText = "Invalid or missing Wi-Fi details.";
+        }
+    </script>
+</body>
+</html>
